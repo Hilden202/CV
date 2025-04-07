@@ -91,7 +91,7 @@ p {
 
 .telnr {
     text-align: left;
-    padding: -15px;
+    padding: auto;
 }
 
 a {
