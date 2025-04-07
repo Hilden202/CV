@@ -19,7 +19,7 @@ header, main, footer{
     flex-basis: 50vw;
     background-color: darkbrown;
 }
-.topright{
+.topright, .right{
     flex-basis: 50vw;
     background-color: rgb(99, 99, 99)
 }
@@ -29,7 +29,7 @@ header, main, footer{
 
 .right{
     flex-basis: 50vw;
-    background-color: black;
+    background-color: darkslategrey;
 }
 
 img{
