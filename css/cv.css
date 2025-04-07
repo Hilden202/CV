@@ -12,10 +12,11 @@ footer {
 }
 
 @media (min-width: 601px) {
+
     header,
     main,
     footer {
-      flex-direction: row;
+        flex-direction: row;
     }
 
 }
@@ -24,6 +25,7 @@ footer {
     flex-basis: 50vw;
     background-color: #e1d8cf;
 }
+
 .topleft {
     flex-basis: 50vw;
     background-color: #e1d8cf;
@@ -32,7 +34,7 @@ footer {
 
 .topright {
     flex-basis: 50vw;
-    background-color:#373741;
+    background-color: #373741;
 
     display: flex;
     flex-direction: column;
@@ -73,18 +75,21 @@ h2 {
 
 h3 {
     text-align: left;
-    color:white;
+    color: white;
     padding: 15px;
 }
+
 h4 {
     text-align: left;
     padding: 15px;
 }
+
 p {
     text-align: left;
     padding: 15px;
-    
+
 }
+
 a {
     text-align: left;
     color: black;
