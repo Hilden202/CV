@@ -1,5 +1,4 @@
 div {
-    background-color: beige;
     margin: 1px;
     padding: 2px;
 }
@@ -9,7 +8,7 @@ main,
 footer {
     display: flex;
     flex-direction: column;
-    font-family: aleo;
+    font-family: aleo sans-serif;
 }
 
 @media (min-width: 601px) {
@@ -20,30 +19,25 @@ footer {
     }
 
 }
-@media (max-width: 600px) {
-    .contact {
-        order: 1;  /* Flyttar "Kontakta mig" längst ner */
-    }
-    .left, .right {
-        order: 0;  /* Återställer ordningen för de andra sektionerna */
-    }
-}
-
 
 .left {
     flex-basis: 50vw;
-    background-color: darkbrown;
+    background-color: #e1d8cf;
 }
 .topleft {
     flex-basis: 50vw;
-    background-color:darkbrown;
+    background-color: #e1d8cf;
+    ;
 }
 
 .topright {
     flex-basis: 50vw;
-    background-color:antiquewhite;
-    padding: 30px;
-    
+    background-color:#373741;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2em;
 }
 
 .h3undername {
@@ -59,26 +53,40 @@ img {
     width: 60%;
     height: auto;
     border-radius: 100%;
-    padding: 30px;
     display: block;
     margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
     text-align: center;
+    color: beige;
 }
 
 h2 {
     text-align: left;
-    background-color: rgb(99, 99, 99);
+    color: beige;
+    background-color: #373741;
     padding: 5px;
-    margin: 0;
+    margin: 0 auto;
 }
 
 h3 {
     text-align: left;
+    padding: 10px;
+}
+h4 {
+    text-align: left;
+    padding: 15px;
 }
 p {
     text-align: left;
+    padding: 15px;
     
+}
+a {
+    text-align: left;
+    color: black;
+    padding: 15px;
+    display: block;
 }
