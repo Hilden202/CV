@@ -26,7 +26,7 @@ footer {
 .topright,
 .right {
     flex-basis: 50vw;
-    background-color: rgb(99, 99, 99);
+    background-color:antiquewhite
 
 }
 
@@ -36,7 +36,7 @@ footer {
 
 .right {
     flex-basis: 50vw;
-    background-color: darkslategrey;
+    background-color: white;
 }
 
 img {
