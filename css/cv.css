@@ -1,0 +1,54 @@
+div{
+    background-color: beige;
+    margin: 1px;
+    padding: 2px;
+}
+/* @media(min-with: 601px)
+{
+    header, main, footer{
+    display: flex;
+    flex-direction: row;
+    }
+} */
+header, main, footer{
+    display: flex;
+    flex-direction: row;
+}
+
+.left{
+    flex-basis: 50vw;
+    background-color: darkbrown;
+}
+.topright{
+    flex-basis: 50vw;
+    background-color: rgb(99, 99, 99)
+}
+.h3undername{
+    text-align: center;
+}
+
+.right{
+    flex-basis: 50vw;
+    background-color: black;
+}
+
+img{
+    width: 50%;
+    height: auto;
+    display: block;
+    margin:auto;
+    border-radius: 100%;
+    border: 2px solid black;
+}
+h1{
+    text-align: center;
+}
+h2{
+    text-align: left;
+    background-color: rgb(99, 99, 99);
+    padding: 5px;
+    margin: 0;
+}
+h3{
+    text-align: left;
+}
