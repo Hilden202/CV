@@ -70,7 +70,6 @@ h2 {
     color: beige;
     background-color: #373741;
     padding: 15px;
-    margin: 0 auto;
 }
 
 h3 {
@@ -89,6 +88,7 @@ p {
     padding: 15px;
 
 }
+
 .telnr {
     text-align: left;
     padding: -15px;
@@ -100,3 +100,6 @@ a {
     padding: 15px;
     display: block;
 }
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
