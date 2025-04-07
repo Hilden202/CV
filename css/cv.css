@@ -67,13 +67,14 @@ h2 {
     text-align: left;
     color: beige;
     background-color: #373741;
-    padding: 5px;
+    padding: 15px;
     margin: 0 auto;
 }
 
 h3 {
     text-align: left;
-    padding: 10px;
+    color:white;
+    padding: 15px;
 }
 h4 {
     text-align: left;
