@@ -31,7 +31,7 @@ footer {
 .topright {
     flex-basis: 50vw;
     background-color:antiquewhite;
-    padding: 50px;
+    padding: 25px;
     
 }
 
@@ -48,7 +48,7 @@ img {
     width: 60%;
     height: auto;
     border-radius: 100%;
-    padding: 50px;
+    padding: 25px;
     display: block;
     margin: 0 auto;
 }
