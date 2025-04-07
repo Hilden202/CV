@@ -4,13 +4,23 @@ div {
     padding: 2px;
 }
 
-@media(min-width: 601px)
-{
-    header, main, footer{
-    display: flex;
-    flex-direction: column;
+/* MOBIL: Små skärmar (upp till 600px) */
+@media (max-width: 600px) {
+    header,
+    main,
+    footer {
+      flex-direction: column;
     }
-}
+  }
+  
+  /* STÖRRE SKÄRMAR: från 601px och uppåt */
+  @media (min-width: 601px) {
+    header,
+    main,
+    footer {
+      flex-direction: row;
+    }
+  }
  
 header,
 main,
