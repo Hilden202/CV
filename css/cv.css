@@ -23,12 +23,16 @@ footer {
     flex-basis: 50vw;
     background-color: darkbrown;
 }
-
-.topright,
-.right {
+.topleft {
     flex-basis: 50vw;
-    background-color:antiquewhite
+    background-color:darkbrown;
+}
 
+.topright {
+    flex-basis: 50vw;
+    background-color:antiquewhite;
+    padding: 50px;
+    
 }
 
 .h3undername {
@@ -41,12 +45,12 @@ footer {
 }
 
 img {
-    width: 50%;
+    width: 60%;
     height: auto;
-    display: block;
-    margin: auto;
     border-radius: 100%;
-    border: 2px solid black;
+    padding: 50px;
+    display: block;
+    margin: 0 auto;
 }
 
 h1 {
@@ -62,4 +66,8 @@ h2 {
 
 h3 {
     text-align: left;
+}
+p {
+    text-align: left;
+    
 }
