@@ -26,6 +26,9 @@ footer {
 .topleft {
     flex-basis: 50vw;
     background-color:darkbrown;
+    padding: 30px;    
+    display: block;
+    margin: 0 auto;
 }
 
 .topright {
@@ -48,9 +51,8 @@ img {
     width: 60%;
     height: auto;
     border-radius: 100%;
-    padding: 30px;
-    display: block;
-    margin: 0 auto;
+
+
 }
 
 h1 {
