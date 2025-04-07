@@ -16,6 +16,7 @@ main,
 footer {
     display: flex;
     flex-direction: row;
+    font-family: aleo;
 }
 
 .left {
