@@ -18,8 +18,17 @@ footer {
     footer {
       flex-direction: row;
     }
+
 }
- 
+@media (max-width: 600px) {
+    .contact {
+        order: 1;  /* Flyttar "Kontakta mig" längst ner */
+    }
+    .left, .right {
+        order: 0;  /* Återställer ordningen för de andra sektionerna */
+    }
+}
+
 
 .left {
     flex-basis: 50vw;
