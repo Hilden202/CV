@@ -89,6 +89,10 @@ p {
     padding: 15px;
 
 }
+.telnr {
+    text-align: left;
+    padding: -15px;
+}
 
 a {
     text-align: left;
