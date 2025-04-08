@@ -95,6 +95,19 @@ a {
     padding: 15px;
     display: block;
 }
-h1, h2, h3, h4, h5, h6, p {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     margin: 0;
-  }
+}
+footer {
+    background-color: #373741;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
