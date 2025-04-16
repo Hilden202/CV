@@ -105,8 +105,7 @@ p {
 a {
     text-align: left;
     color: black;
-    padding-left: 15px;  /* Luft i början */
-    margin-bottom: 8px;  /* Mellanrum mellan raderna */
+
     display: inline-block; /* Behåller inline + tillåter margin/padding */
 }
 
