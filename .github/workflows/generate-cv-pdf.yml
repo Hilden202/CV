@@ -36,13 +36,14 @@ jobs:
             });
             await page.pdf({
               path: 'Patrik_Hildenborg_CV.pdf',
-              format: 'A2',
+              format: 'A3',
               printBackground: true,
               margin: {
                 top: '0px',
                 bottom: '0px',
                 left: '0px',
-                right: '0px'
+                right: '0px',
+                scale: 0.95
               }
             });
             await browser.close();
