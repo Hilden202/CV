@@ -36,7 +36,7 @@ jobs:
             });
             await page.pdf({
               path: 'Patrik_Hildenborg_CV.pdf',
-              format: 'A3',
+              format: 'A2',
               printBackground: true,
               margin: {
                 top: '0px',
