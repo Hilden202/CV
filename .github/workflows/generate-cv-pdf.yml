@@ -36,7 +36,8 @@ jobs:
             });
             await page.pdf({
               path: 'Patrik_Hildenborg_CV.pdf',
-              format: 'A2.5',
+                  width: '420mm',   // Bredden för A3
+                  height: '250mm',  // Höjden för A3-47
               printBackground: true,
               margin: {
                 top: '0px',
