@@ -1,0 +1,53 @@
+name: Generate PDF CV
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install puppeteer
+
+      - name: Generate PDF from CV
+        run: |
+          node <<EOF
+          const puppeteer = require('puppeteer');
+
+          (async () => {
+            const browser = await puppeteer.launch({ headless: 'new' });
+            const page = await browser.newPage();
+            await page.goto('https://hilden202.github.io/CV/', {
+              waitUntil: 'networkidle0'
+            });
+            await page.pdf({
+              path: 'Patrik_Hildenborg_CV.pdf',
+              format: 'A3',
+              printBackground: true,
+              margin: {
+                top: '0px',
+                bottom: '0px',
+                left: '0px',
+                right: '0px'
+              }
+            });
+            await browser.close();
+          })();
+          EOF
+
+      - name: Upload generated PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: CV-PDF
+          path: Patrik_Hildenborg_CV.pdf
