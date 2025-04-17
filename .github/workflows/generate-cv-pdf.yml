@@ -43,7 +43,7 @@ jobs:
                 bottom: '0px',
                 left: '0px',
                 right: '0px',
-                scale: 0.95
+                scale: 0.92
               }
             });
             await browser.close();
