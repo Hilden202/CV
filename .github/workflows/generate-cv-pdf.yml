@@ -50,11 +50,11 @@ jobs:
           })();
           EOF
 
-      - name: Create pdf folder if it doesn't exist
-        run: mkdir -p pdf
-        
-      - name: Move PDF to pdf folder
-        run: mv ./Patrik_Hildenborg_CV.pdf ./pdf/Patrik_Hildenborg_CV.pdf
+      - name: Create PDF folder if it doesn't exist
+        run: mkdir -p CV/pdf
+  
+      - name: Move PDF to PDF folder
+        run: mv Patrik_Hildenborg_CV.pdf CV/pdf/Patrik_Hildenborg_CV.pdf
 
       - name: Upload generated PDF
         uses: actions/upload-artifact@v4
