@@ -51,13 +51,15 @@ jobs:
           EOF
 
       - name: Create PDF folder if it doesn't exist
-        run: mkdir -p CV/pdf
+        run: mkdir -p docs/pdf  # Ändra till docs om det är där din index.html finns
 
-      - name: Move PDF to PDF folder
-        run: mv Patrik_Hildenborg_CV.pdf CV/pdf/Patrik_Hildenborg_CV.pdf
+      - name: Move PDF to public folder
+        run: mv Patrik_Hildenborg_CV.pdf docs/pdf/Patrik_Hildenborg_CV.pdf  # Flytta filen till docs/pdf
 
-      - name: Upload generated PDF as a zip
-        uses: actions/upload-artifact@v4
-        with:
-          name: CV-PDF
-          path: CV/pdf/Patrik_Hildenborg_CV.pdf
+      - name: Commit changes and push
+        run: |
+          git config --global user.name "Your GitHub Username"
+          git config --global user.email "your-email@example.com"
+          git add docs/pdf/Patrik_Hildenborg_CV.pdf
+          git commit -m "Add PDF CV"
+          git push
