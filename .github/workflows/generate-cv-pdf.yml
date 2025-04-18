@@ -50,11 +50,11 @@ jobs:
           })();
           EOF
 
-      - name: Create 'pdf' folder inside 'docs'
-        run: mkdir -p docs/pdf  # Se till att skapa pdf-mappen i docs
+      - name: Create 'pdf' folder inside 'CV'
+        run: mkdir -p CV/pdf
 
       - name: Move PDF to public folder
-        run: mv Patrik_Hildenborg_CV.pdf docs/pdf/Patrik_Hildenborg_CV.pdf  # Flytta PDF till docs/pdf
+        run: mv CV-PDF.zip CV/pdf/CV-PDF.zip
 
       - name: Commit changes and push
         run: |
