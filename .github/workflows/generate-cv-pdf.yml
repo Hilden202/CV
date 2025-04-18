@@ -20,6 +20,9 @@ jobs:
       - name: Install dependencies
         run: npm install puppeteer
 
+      - name: Wait for GitHub Pages to update
+        run: sleep 15  # Väntar i 15 sekunder
+
       - name: Generate PDF from CV
         run: |
           node <<EOF
