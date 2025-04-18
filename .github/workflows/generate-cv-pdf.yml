@@ -21,7 +21,7 @@ jobs:
         run: npm install puppeteer
 
       - name: Wait for GitHub Pages to update
-        run: sleep 30  # Väntar i 15 sekunder
+        run: sleep 30  # Väntar i 30 sekunder för att säkerställa att GitHub Pages är uppdaterad
 
       - name: Generate PDF from CV
         run: |
@@ -52,15 +52,23 @@ jobs:
             await browser.close();
           })();
           EOF
-          
-      # - name: Create pdf folder if it doesn't exist
-      #   run: mkdir -p pdf
-        
-      # - name: Move PDF to public folder
-      #   run: mv Patrik_Hildenborg_CV.pdf pdf/Patrik_Hildenborg_CV.pdf
+
+      - name: Create pdf folder if it doesn't exist
+        run: mkdir -p pdf  # Skapa mappen om den inte finns
+
+      - name: Move PDF to pdf folder
+        run: mv Patrik_Hildenborg_CV.pdf pdf/Patrik_Hildenborg_CV.pdf  # Flytta PDF till rätt mapp
+
+      - name: Commit and push PDF to GitHub Pages
+        run: |
+          git config --global user.name "Hilden202"  # Sätt Git-användarnamn
+          git config --global user.email "phildenborg@gmail.com"  # Sätt Git-e-postadress
+          git add pdf/Patrik_Hildenborg_CV.pdf  # Lägg till PDF-filen i Git
+          git commit -m "Update CV PDF"  # Gör commit
+          git push origin main  # Pusha till GitHub
 
       - name: Upload generated PDF
         uses: actions/upload-artifact@v4
         with:
           name: CV-PDF
-          path: Patrik_Hildenborg_CV.pdf
+          path: pdf/Patrik_Hildenborg_CV.pdf  # Ladda upp filen som artifact
