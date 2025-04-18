@@ -50,11 +50,11 @@ jobs:
           })();
           EOF
 
-      - name: Create 'pdf' folder inside 'CV'
-        run: mkdir -p CV/pdf
+      # - name: Create 'pdf' folder inside 'CV'
+      #   run: mkdir -p CV/pdf
 
-      - name: Move PDF to public folder
-        run: mv CV-PDF.zip CV/pdf/CV-PDF.zip
+      # - name: Move PDF to public folder
+      #   run: mv CV-PDF.zip CV/pdf/CV-PDF.zip
 
       - name: Commit changes and push
         run: |
