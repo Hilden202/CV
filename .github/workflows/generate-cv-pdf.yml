@@ -28,7 +28,7 @@ jobs:
           (async () => {
             const browser = await puppeteer.launch({ 
               headless: true, 
-              args: ['--no-sandbox', '--disable-setuid-sandbox']  // Lägg till dessa argument
+              args: ['--no-sandbox', '--disable-setuid-sandbox']
             });
             const page = await browser.newPage();
             await page.goto('https://hilden202.github.io/CV/', {
@@ -36,8 +36,8 @@ jobs:
             });
             await page.pdf({
               path: 'Patrik_Hildenborg_CV.pdf',
-                width: '300mm',    // Bredd kan justeras fritt – layouten är responsiv
-                height: '450mm',   // Fast höjd – ger tillräckligt med utrymme för hela sidan inkl. fot
+              width: '300mm',
+              height: '450mm',
               printBackground: true,
               margin: {
                 top: '0px',
@@ -52,12 +52,12 @@ jobs:
 
       - name: Create PDF folder if it doesn't exist
         run: mkdir -p CV/pdf
-  
+
       - name: Move PDF to PDF folder
         run: mv Patrik_Hildenborg_CV.pdf CV/pdf/Patrik_Hildenborg_CV.pdf
 
-      - name: Upload generated PDF
+      - name: Upload generated PDF as a zip
         uses: actions/upload-artifact@v4
         with:
           name: CV-PDF
-          path: Patrik_Hildenborg_CV.pdf
+          path: CV/pdf/Patrik_Hildenborg_CV.pdf
