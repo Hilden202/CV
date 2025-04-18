@@ -21,7 +21,7 @@ jobs:
         run: npm install puppeteer
 
       - name: Wait for GitHub Pages to update
-        run: sleep 30  # Väntar i 30 sekunder för att säkerställa att GitHub Pages är uppdaterad
+        run: sleep 31  # Väntar i 30 sekunder för att säkerställa att GitHub Pages är uppdaterad
 
       - name: Generate PDF from CV
         run: |
