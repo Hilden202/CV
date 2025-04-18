@@ -50,11 +50,11 @@ jobs:
           })();
           EOF
 
-      - name: Create PDF folder if it doesn't exist
-        run: mkdir -p docs/pdf  # Ändra till docs om det är där din index.html finns
+      - name: Create 'pdf' folder inside 'docs'
+        run: mkdir -p docs/pdf  # Se till att skapa pdf-mappen i docs
 
       - name: Move PDF to public folder
-        run: mv Patrik_Hildenborg_CV.pdf docs/pdf/Patrik_Hildenborg_CV.pdf  # Flytta filen till docs/pdf
+        run: mv Patrik_Hildenborg_CV.pdf docs/pdf/Patrik_Hildenborg_CV.pdf  # Flytta PDF till docs/pdf
 
       - name: Commit changes and push
         run: |
