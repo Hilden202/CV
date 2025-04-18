@@ -123,3 +123,31 @@ footer {
     text-align: center;
     padding: 10px;
 }
+.download-section {
+    text-align: center;
+  }
+  
+  .pdf-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .pdf-icon:hover {
+    background-color: #007bff;
+    color: white;
+  }

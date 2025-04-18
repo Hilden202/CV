@@ -36,8 +36,8 @@ jobs:
             });
             await page.pdf({
               path: 'Patrik_Hildenborg_CV.pdf',
-                  height: '450mm',   // Höjden istället för A3
-                  width: '300mm',  // Bredden istället för A3
+                width: '300mm',    // Bredd kan justeras fritt – layouten är responsiv
+                height: '450mm',   // Fast höjd – ger tillräckligt med utrymme för hela sidan inkl. fot
               printBackground: true,
               margin: {
                 top: '0px',
@@ -49,6 +49,9 @@ jobs:
             await browser.close();
           })();
           EOF
+
+      - name: Move PDF to public folder
+        run: mv Patrik_Hildenborg_CV.pdf ./Patrik_Hildenborg_CV.pdf
 
       - name: Upload generated PDF
         uses: actions/upload-artifact@v4
