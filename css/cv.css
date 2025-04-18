@@ -134,7 +134,7 @@ footer {
     font-size: 20px;
     text-decoration: none;
     color: #333;
-    background-color: #373741;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
