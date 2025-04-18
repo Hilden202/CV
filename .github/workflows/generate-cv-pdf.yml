@@ -50,6 +50,9 @@ jobs:
           })();
           EOF
 
+      - name: Create pdf folder if it doesn't exist
+        run: mkdir -p pdf
+        
       - name: Move PDF to public folder
         run: mv Patrik_Hildenborg_CV.pdf pdf/Patrik_Hildenborg_CV.pdf
 
