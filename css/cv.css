@@ -127,7 +127,7 @@ footer {
     text-align: center;
   }
   
-  .pdf-icon {
+  /* .pdf-icon {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -150,4 +150,4 @@ footer {
   .pdf-icon:hover {
     background-color: #007bff;
     color: white;
-  }
+  } */
