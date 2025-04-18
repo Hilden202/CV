@@ -28,7 +28,7 @@ jobs:
           (async () => {
             const browser = await puppeteer.launch({ 
               headless: true, 
-              args: ['--no-sandbox', '--disable-setuid-sandbox']
+              args: ['--no-sandbox', '--disable-setuid-sandbox']  // Lägg till dessa argument
             });
             const page = await browser.newPage();
             await page.goto('https://hilden202.github.io/CV/', {
@@ -36,8 +36,8 @@ jobs:
             });
             await page.pdf({
               path: 'Patrik_Hildenborg_CV.pdf',
-              width: '300mm',
-              height: '450mm',
+                width: '300mm',    // Bredd kan justeras fritt – layouten är responsiv
+                height: '450mm',   // Fast höjd – ger tillräckligt med utrymme för hela sidan inkl. fot
               printBackground: true,
               margin: {
                 top: '0px',
@@ -50,16 +50,14 @@ jobs:
           })();
           EOF
 
-      # - name: Create 'pdf' folder inside 'CV'
-      #   run: mkdir -p CV/pdf
-
+      # - name: Create pdf folder if it doesn't exist
+      #   run: mkdir -p pdf
+        
       # - name: Move PDF to public folder
-      #   run: mv CV-PDF.zip CV/pdf/CV-PDF.zip
+      #   run: mv Patrik_Hildenborg_CV.pdf pdf/Patrik_Hildenborg_CV.pdf
 
-      - name: Commit changes and push
-        run: |
-          git config --global user.name "Your GitHub Username"
-          git config --global user.email "your-email@example.com"
-          git add docs/pdf/Patrik_Hildenborg_CV.pdf
-          git commit -m "Add PDF CV"
-          git push
+      - name: Upload generated PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: CV-PDF
+          path: Patrik_Hildenborg_CV.pdf
