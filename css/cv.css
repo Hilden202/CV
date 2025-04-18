@@ -128,12 +128,14 @@ footer {
   }
   
   .pdf-icon {
+    
+    height: 30                                                                                                                                                                                                                px;
     position: absolute;
     top: 20px;
     right: 20px;
     font-size: 20px;
+    width: 30px;
     text-decoration: none;
-    color: #333;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -144,5 +146,5 @@ footer {
   }
   
   .pdf-icon:hover {
-    color: white;
+    transform: scale(1.2);
   }
