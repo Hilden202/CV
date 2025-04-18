@@ -65,7 +65,10 @@ jobs:
           git config --global user.email "phildenborg@gmail.com"  # Sätt Git-e-postadress
           git add pdf/Patrik_Hildenborg_CV.pdf  # Lägg till PDF-filen i Git
           git commit -m "Update CV PDF"  # Gör commit
-          git push origin main  # Pusha till GitHub
+          git push https://github.com/Hilden202/CV.git HEAD:main  # Använd GITHUB_TOKEN för att pusha
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Lägger till GitHub Token för autentisering
 
       - name: Upload generated PDF
         uses: actions/upload-artifact@v4
