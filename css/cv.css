@@ -147,3 +147,28 @@ footer {
   .pdf-icon:hover {
     transform: scale(1.2);
   }
+
+/* Tighter spacing i högerspalten */
+.right h4, 
+.right p {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.right h4 {
+  padding-top: 8px;
+  padding-bottom: 4px;   /* ↓ var 15px */
+  margin-bottom: 0;
+}
+
+.right p {
+  padding-top: 4px;      /* ↓ var 15px */
+  padding-bottom: 8px;
+  margin-top: 0;
+  line-height: 1.45;
+}
+
+/* Extra tight direkt efter rubrik */
+.right h4 + p {
+  padding-top: 2px;
+}
