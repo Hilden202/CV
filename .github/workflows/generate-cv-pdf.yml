@@ -40,7 +40,7 @@ jobs:
               path: 'Patrik_Hildenborg_CV.pdf',
                 width: '300mm',    // Bredd kan justeras fritt – layouten är responsiv
                 height: '470mm',   // Fast höjd – ger tillräckligt med utrymme för hela sidan inkl. fot
-                scale: 0.80,  // Skala för att passa innehållet på sidan
+                scale: 0.82,  // Skala för att passa innehållet på sidan
               printBackground: true,
               margin: {
                 top: '0px',
