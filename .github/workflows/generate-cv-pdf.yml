@@ -20,9 +20,6 @@ jobs:
       - name: Install dependencies
         run: npm install puppeteer
 
-      - name: Wait for GitHub Pages to update
-        run: sleep 30  # Väntar i 30 sekunder för att säkerställa att GitHub Pages är uppdaterad
-
       - name: Generate PDF from CV
         run: |
           node <<EOF
@@ -34,8 +31,10 @@ jobs:
               args: ['--no-sandbox', '--disable-setuid-sandbox']  // Lägg till dessa argument
             });
             const page = await browser.newPage();
-            await page.goto('https://hilden202.github.io/CV/', {
-              waitUntil: 'networkidle0'
+            const path = require('path');
+
+            await page.goto(`file://${path.resolve('index.html')}`, {
+              waitUntil: 'load'
             });
             await page.pdf({
               path: 'Patrik_Hildenborg_CV.pdf',
