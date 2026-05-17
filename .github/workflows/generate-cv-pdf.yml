@@ -29,19 +29,11 @@ jobs:
           const puppeteer = require('puppeteer');
 
           (async () => {
-            const browser = await puppeteer.launch({ 
-              headless: true, 
-              args: ['--no-sandbox', '--disable-setuid-sandbox']  // Lägg till dessa argument
-            });
-            const page = await browser.newPage();
-            await page.goto('https://hilden202.github.io/CV/', {
-              waitUntil: 'networkidle0'
-            });
-            await page.pdf({
+            const pdfOptions = {
               path: 'Patrik_Hildenborg_CV.pdf',
-                width: '300mm',    // Bredd kan justeras fritt – layouten är responsiv
-                height: '470mm',   // Fast höjd – ger tillräckligt med utrymme för hela sidan inkl. fot
-                scale: 0.83,  // Skala för att passa innehållet på sidan
+              width: '300mm',    // Bredden hålls fri från A4-låsning och matchar den responsiva layouten
+              height: '470mm',   // Den befintliga PDF-sidans höjd, inte ett A4-antagande
+              scale: 0.83,       // Visuell PDF-skalning som projektet redan bygger på
               printBackground: true,
               margin: {
                 top: '0px',
@@ -49,7 +41,49 @@ jobs:
                 left: '0px',
                 right: '0px'
               }
+            };
+            const pageWidthMm = 300;
+            const pageHeightMm = 470;
+            const pxPerMm = 96 / 25.4;
+
+            const browser = await puppeteer.launch({ 
+              headless: true, 
+              args: ['--no-sandbox', '--disable-setuid-sandbox']  // Lägg till dessa argument
             });
+            const page = await browser.newPage();
+            await page.setViewport({
+              width: Math.ceil((pageWidthMm * pxPerMm) / pdfOptions.scale),
+              height: Math.ceil((pageHeightMm * pxPerMm) / pdfOptions.scale)
+            });
+            await page.goto('https://hilden202.github.io/CV/', {
+              waitUntil: 'networkidle0'
+            });
+            await page.emulateMediaType('print');
+            await page.evaluate(() => window.cvReady);
+            await page.evaluate(() => document.fonts && document.fonts.ready);
+            await page.evaluate(() => Promise.all(
+              Array.from(document.images)
+                .filter(image => !image.complete)
+                .map(image => new Promise(resolve => {
+                  image.onload = resolve;
+                  image.onerror = resolve;
+                }))
+            ));
+            const fitResult = await page.evaluate(options => {
+              if (typeof window.fitCvToPdfPage !== 'function') {
+                throw new Error('fitCvToPdfPage saknas på sidan');
+              }
+
+              return window.fitCvToPdfPage(options);
+            }, {
+              pageHeightMm,
+              scale: pdfOptions.scale
+            });
+            console.log(`PDF fit: ${JSON.stringify(fitResult)}`);
+            if (!fitResult.fits) {
+              throw new Error('CV-innehållet får inte plats på en PDF-sida utan större innehållsändring.');
+            }
+            await page.pdf(pdfOptions);
             await browser.close();
           })();
           EOF

@@ -1,6 +1,29 @@
+:root {
+    --cv-body-font-size: 16px;
+    --cv-div-margin: 1px;
+    --cv-div-padding: 2px;
+    --cv-section-padding: 15px;
+    --cv-contact-padding: 15px;
+    --cv-footer-padding: 10px;
+    --cv-right-h4-padding-top: 8px;
+    --cv-right-h4-padding-bottom: 4px;
+    --cv-right-p-padding-top: 4px;
+    --cv-right-p-padding-bottom: 8px;
+    --cv-right-p-after-h4-padding-top: 2px;
+    --cv-line-height: 1.2;
+    --cv-right-line-height: 1.45;
+    --cv-list-margin-block: 1em;
+    --cv-list-padding-left: 40px;
+}
+
+body {
+    margin: 8px;
+    font-size: var(--cv-body-font-size);
+}
+
 div {
-    margin: 1px;
-    padding: 2px;
+    margin: var(--cv-div-margin);
+    padding: var(--cv-div-padding);
 }
 
 header,
@@ -61,7 +84,8 @@ footer {
 
 .imgSignature {
     width: 50%;
-    height: auto;;
+    height: auto;
+    vertical-align: middle;
 }
 
 h1 {
@@ -73,32 +97,42 @@ h2 {
     text-align: left;
     color: beige;
     background-color: #373741;
-    padding: 15px;
+    padding: var(--cv-section-padding);
 }
 
 h3 {
     text-align: left;
     color: white;
-    padding: 15px;
+    padding: var(--cv-section-padding);
 }
 
 h4 {
     text-align: left;
-    padding: 15px;
+    padding: var(--cv-section-padding);
 }
 
 p {
     text-align: left;
-    padding: 15px;
-
+    padding: var(--cv-section-padding);
+    line-height: var(--cv-line-height);
 }
 
 .contact-row {
     display: block;
-    padding: 15px;
+    padding: var(--cv-contact-padding);
     text-align: left;
     color: black;
     text-decoration: none;
+    line-height: var(--cv-line-height);
+}
+
+li {
+    line-height: var(--cv-line-height);
+}
+
+ul {
+    margin-block: var(--cv-list-margin-block);
+    padding-left: var(--cv-list-padding-left);
 }
 
 a {
@@ -120,19 +154,26 @@ footer {
     background-color: #373741;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: var(--cv-footer-padding);
 }
+
+footer p {
+    width: 100%;
+}
+
+.footer-date {
+    display: inline-block;
+}
+
 .download-section {
     text-align: center;
   }
   
-  .pdf-icon {
-    
-    height: 30                                                                                                                                                                                                                px;
+.pdf-download {
+    height: 30px;
     position: absolute;
     top: 8px;
     right: 7px;
-    font-size: 20px;
     width: 30px;
     text-decoration: none;
     background-color: transparent;
@@ -142,11 +183,17 @@ footer {
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
     z-index: 1000;
-  }
+}
+
+.pdf-icon {
+    width: 100%;
+    height: auto;
+    display: block;
+}
   
-  .pdf-icon:hover {
+.pdf-download:hover {
     transform: scale(1.2);
-  }
+}
 
 /* Tighter spacing i högerspalten */
 .right h4, 
@@ -156,19 +203,81 @@ footer {
 }
 
 .right h4 {
-  padding-top: 8px;
-  padding-bottom: 4px;   /* ↓ var 15px */
+  padding-top: var(--cv-right-h4-padding-top);
+  padding-bottom: var(--cv-right-h4-padding-bottom);   /* var 15px */
   margin-bottom: 0;
 }
 
 .right p {
-  padding-top: 4px;      /* ↓ var 15px */
-  padding-bottom: 8px;
+  padding-top: var(--cv-right-p-padding-top);      /* var 15px */
+  padding-bottom: var(--cv-right-p-padding-bottom);
   margin-top: 0;
-  line-height: 1.45;
+  line-height: var(--cv-right-line-height);
 }
 
 /* Extra tight direkt efter rubrik */
 .right h4 + p {
-  padding-top: 2px;
+  padding-top: var(--cv-right-p-after-h4-padding-top);
+}
+
+@media print {
+    body {
+        margin: 0;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    /* PDF-renderingen har egen skalning. Dessa regler tar bort UI och hindrar att footern delas. */
+    .pdf-download {
+        display: none !important;
+    }
+
+    h2,
+    h4,
+    p,
+    .contact-row,
+    li,
+    footer {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    h2,
+    h4 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    footer {
+        align-items: center;
+        padding: 6px 10px;
+    }
+
+    footer p {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        line-height: 1.2;
+        padding: 0 12px;
+        white-space: nowrap;
+    }
+
+    .footer-break {
+        display: none;
+    }
+
+    .footer-copy {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .footer-date {
+        flex: 0 0 auto;
+    }
+
+    .imgSignature {
+        flex: 0 0 auto;
+        width: 128px;
+        max-width: 16%;
+    }
 }
