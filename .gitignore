@@ -1,0 +1,17 @@
+# JetBrains / Rider
+.idea/
+
+# macOS
+.DS_Store
+
+# Temp
+tmp/
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# Generated files (optional)
+# pdf/*.pdf
