@@ -177,3 +177,6 @@ window.addEventListener("beforeprint", () => {
 window.addEventListener("afterprint", () => {
     resetCvPdfFit();
 });
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
