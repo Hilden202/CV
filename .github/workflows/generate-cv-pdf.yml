@@ -31,7 +31,7 @@ jobs:
       - name: Verify PDF page format
         run: |
           pdfinfo pdf/Patrik_Hildenborg_CV.pdf | tee pdf-info.txt
-          python3 -c "import re; s=open('pdf-info.txt').read(); m=re.search(r'Page size:\\s*([0-9.]+) x ([0-9.]+) pts',s); assert m and abs(float(m[1])-595)<1 and abs(float(m[2])-842)<1, 'PDF is not A4'"
+          python3 -c "s=open('pdf-info.txt').read(); line=next(x for x in s.splitlines() if x.startswith('Page size:')); w,h=map(float,line.split(':',1)[1].split('pts')[0].strip().split(' x ')); assert abs(w-595)<1 and abs(h-842)<1, 'PDF is not A4'"
       - uses: actions/upload-artifact@v4
         with:
           name: CV-PDF
