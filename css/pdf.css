@@ -1,0 +1,34 @@
+/* A4 print layout. Screen presentation remains unchanged. */
+@page { size: A4; margin: 12mm; }
+@media print {
+  :root { --cv-body-font-size: 10px; --cv-section-padding: 4px; --cv-contact-padding: 3px; --cv-footer-padding: 4px; --cv-right-h4-padding-top: 3px; --cv-right-h4-padding-bottom: 1px; --cv-right-p-padding-top: 1px; --cv-right-p-padding-bottom: 3px; --cv-right-p-after-h4-padding-top: 1px; --cv-right-line-height: 1.3; --cv-list-margin-block: .2em; --cv-list-padding-left: 20px; }
+  html, body { width: auto; margin: 0; padding: 0; }
+  div { margin: 0; padding: 0; }
+  h2 { margin: 0; padding: 5px 7px; }
+  .left > p, .left > h4, .left > ul { margin: 0; }
+  .left > p { padding: 4px 7px; line-height: 1.15; }
+  .left > h4 { padding: 5px 7px 2px; }
+  .left > ul { padding: 3px 7px 3px 23px; }
+  .left > ul li { line-height: 1.15; }
+  .contact-row { padding: 4px 7px; }
+  .right h4, .right p { padding-left: 7px; padding-right: 7px; }
+  .right p { line-height: 1.2; }
+  .topleft, .topright { padding: 3px; }
+  footer { padding: 3px 5px; }
+  footer p { padding: 0 5px; }
+  body { font-size: var(--cv-body-font-size); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  header, main, footer { display: flex; flex-direction: row; width: 100%; }
+  .topleft, .topright, .left, .right { flex: 0 0 50%; min-width: 0; box-sizing: border-box; }
+  .pdf-download { display: none !important; }
+  .imgJag { max-width: 105px; }
+  h1 { font-size: 20px; }
+  h2 { font-size: 13px; }
+  h3 { font-size: 11px; }
+  h4 { font-size: 10px; }
+  p, li, a, .contact-row { overflow-wrap: anywhere; }
+  h2, h4 { break-after: avoid; page-break-after: avoid; }
+  p, li, .contact-row { break-inside: avoid; page-break-inside: avoid; }
+  header, footer { break-inside: avoid; page-break-inside: avoid; }
+  footer p { white-space: normal; }
+  .imgSignature { max-width: 70px; }
+}
