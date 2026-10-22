@@ -13,7 +13,7 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,3 +37,10 @@ jobs:
           name: CV-PDF
           path: pdf/Patrik_Hildenborg_CV.pdf
           if-no-files-found: error
+      - name: Update downloadable PDF on main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pdf/Patrik_Hildenborg_CV.pdf
+          git diff --cached --quiet || (git commit -m "Refresh CV PDF [skip ci]" && git push)
